@@ -23,20 +23,18 @@ function chklog(req,resp,next)
 function decTok(req,resp,next)
 {
     const token=req.headers['authorization'];
-    console.log(token);
-    if(token==undefined)
+    if(token===undefined)
     {
-
         resp.json({status:false,message:"No token ** received"});
         return;
     }
-    var ary=token.split(' ');
-    console.log(ary[1]);
+    var ary=token.split(' ')[1];
+    console.log(ary);
     if(!token){
         resp.json({status:false,message:"No token received"});
         return;
     }
-    const valid=jwt.verify(ary[1],process.env.sec_key);
+    const valid=jwt.verify(ary,process.env.sec_key);
     if(valid)
     {
         const user=jwt.decode(token);

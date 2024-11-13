@@ -9,7 +9,6 @@ app.get("/upnoid-prov",pro.up1);
 app.post("/upid-prov",pro.up2);
 app.get("/prov-cat",pro.discat);
 app.get("/prov-cit",pro.discit);
-// app.get("/srch-prov",pro.srchprov);
 
 app.post("/srch-prov",mid.decTok,pro.srchprov);
 module.exports=app;

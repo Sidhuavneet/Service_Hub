@@ -82,4 +82,10 @@ async function reqpost(req,resp){
     var creq=clr(req.body);
     await creq.save().then((res)=>{resp.send(res)}).catch((e)=>{console.log(e);})
 }
-module.exports={Cdetails,getC,upText,upTextApic,upTextClpic,UpClAll,reqpost}
+async function getReq(req,resp){
+    await clr.find().then((res)=>{resp.send(res)}).catch((e)=>{console.log(e);})
+}
+async function getCat(req,resp){
+    await clr.distinct('cat').then((res)=>{resp.send(res)}).catch((e)=>{resp.send(e)});
+}
+module.exports={Cdetails,getC,upText,upTextApic,upTextClpic,UpClAll,reqpost,getReq,getCat}

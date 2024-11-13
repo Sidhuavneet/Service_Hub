@@ -5,7 +5,6 @@ var schm=Sfx();
 
 async function qSign(req,resp)
 {
-    console.log("oakyyy");
     var user=new schm(req.body);
     await user.save().then((res)=>{
         console.log("saved sucessfully..........");
